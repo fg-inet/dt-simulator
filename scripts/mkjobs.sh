@@ -20,7 +20,7 @@ echo "concatinating and splitting jobs"
 	cat job.*.in | split -a 3 -l 1000 - jobpart. ;
 	find . | grep 'jobpart\.' | sort -R > jobparts
 	# TODO: adjust splitting to run jobs on multiple machines
-	jobparts | xargs cat > jobs.$(hostname)
+	cat jobparts | xargs cat > jobs.$(hostname)
 	# head -n 6000 jobparts | xargs cat > jobs.gonzales
 	# tail -n +6001 jobparts | xargs cat > jobs.speedy
 	xargs rm < jobparts
